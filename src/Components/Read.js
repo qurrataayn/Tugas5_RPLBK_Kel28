@@ -9,13 +9,17 @@ const Read = () => {
   function getData() {
     axios
       .get("https://62a59821b9b74f766a3c09a4.mockapi.io/crud-youtube")
-      ;
+      .then((res) => {
+        setData(res.data);
+    });
   }
 
   function handleDelete(id) {
     axios
       .delete(`https://62a59821b9b74f766a3c09a4.mockapi.io/crud-youtube/${id}`)
-      ;
+      .then(() => {
+        getData();
+    });
   }
 
   const setToLocalStorage = (id, name, email) => {
